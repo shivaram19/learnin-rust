@@ -1,18 +1,63 @@
-
- use  std::fs::read_to_string;
+use  std::{fs::read_to_string, vec};
 use chrono::{ Local, Utc };
- fn main(){
-	let current_utc_time = Utc::now();
-	let current_time = Local::now();
-	println!("current time is {} and cuurent_utc_time is {}", current_time, current_utc_time);
-	let result = read_to_string("hello.txt");
-	match result {
-		Ok(data) => println!("contents in the file are {:?}" ,data),
-		Err(err) => println!("error caused while reading the file {:?}", err)
+
+// pub fn hakuna() -> &Vec<i32>{
+// 	let mut vec: Vec<i32> = Vec::new();
+// 	for i in 0..10{
+// 		vec.push(i);
+// 	}
+
+// 	return &mut vec;
+// }
+// pub fn filter_even(vec : &mut Vec<i32>) -> &Vec<i32>{
+// 	let mut i:i32 = 0;
+// 	while i < vec.len(){
+// 		if vec[i]%2 == 1 {
+// 			vec.remove(i);
+// 		};
+// 		i+=1;
+// 	}
+
+// 	return vec ;
+// }
+// pub fn hakuna(vec : &mut Vec<i32>) -> &Vec<i32>{
+// 	for i in 0..10{
+// 		vec.push(i);
+// 	}
+
+// 	return vec;
+// }
+//  fn main(){
+
+// 	let mut shit: Vec<i32> = Vec::new();
+// 	let vector = hakuna(&mut shit);
+// 	print!("{:?}", vector);
+
+// 	let current_utc_time = Utc::now();
+// 	let current_time = Local::now();
+// 	println!("current time is {} and cuurent_utc_time is {}", current_time, current_utc_time);
+// 	let result = read_to_string("hello.txt");
+// 	match result {
+// 		Ok(data) => println!("contents in the file are {:?}" ,data),
+// 		Err(err) => println!("error caused while reading the file {:?}", err)
+// 	}
+//  }
+
+fn main(){
+	let mut vec = Vec::new();
+	for i in 0..99{
+		vec.push(i);
 	}
- }
+}
 
-
+pub fn filter_even(v: Vec<i32>) -> Vec<i32>{
+	for i in 0..v.len(){
+		if v[i]%2 == 0 {
+			v.push(i);
+		}
+	}
+	return  v;
+}
 
 
 
