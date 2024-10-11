@@ -1,5 +1,5 @@
-use  std::{fs::read_to_string, vec};
-use chrono::{ Local, Utc };
+// use  std::{fs::read_to_string, vec};
+// use chrono::{ Local, Utc };
 
 // pub fn hakuna() -> &Vec<i32>{
 // 	let mut vec: Vec<i32> = Vec::new();
@@ -43,20 +43,73 @@ use chrono::{ Local, Utc };
 // 	}
 //  }
 
+
+use std::{collections::HashMap, vec};
+
+fn reallocation(vec: Vec<(String, i32)>) -> HashMap<String, i32> {
+	let mut users: HashMap<String, i32> = HashMap::new();
+	for (key, value ) in vec{
+		users.insert(key, value);
+	}
+
+	return users;
+}
 fn main(){
-	let mut vec = Vec::new();
-	for i in 0..99{
+	let mut hakuna: Vec<(String, i32)> = Vec::new();
+	hakuna.push((String::from("hakuna"),23));
+	hakuna.push((String::from("pushing for life"), 32));
+	println!("{:?}",hakuna);
+	let ans = reallocation(hakuna);
+	println!("{:?}",ans);
+	
+
+	let vec = vec![1, 2, 3];
+	let v1_iter = vec.iter();
+
+	let sum: &i32 = &v1_iter.sum();
+	println!("value of sum is {}",*sum);
+	// for v in v1_iter{
+	// 	println!("{:?}",v);
+	// }
+
+	let mut users : HashMap<String, i32> = HashMap::new();
+	users.insert(String::from("hakuna"), 32);
+	users.insert(String::from("kai raja kaii"), 91);
+	let jang: Option<&i32> = users.get("kai raja kaii");
+	// println!("{}", jang);
+	match jang{
+		Some(k) => println!("{}", k),
+		None => println!("the value that you are looking for is not present")
+	}
+	let numbers : Vec<String> = vec![String::from("hakuna matata"), String::from("jang kun lee")];
+	println!("{:?}",numbers);
+	let mut vec = Vec::new();	
+	for i in 0..100{
 		vec.push(i);
 	}
+	filter_even(&mut vec);
+	// println!("{:?}",ans);
+	println!("{:?}",vec);
 }
 
-pub fn filter_even(v: Vec<i32>) -> Vec<i32>{
-	for i in 0..v.len(){
+pub fn filter_even(v: &mut Vec<i32>){
+	// let mut hakuna: Vec<i32> = Vec::new();
+	// println!("{}",v.len());
+	// for i in (0..v.len()).rev(){
+	// 	if v[i]%2 == 0 {
+	// 		v.remove(i);
+	// 	}
+	// }
+	// // return hakuna;
+
+	let mut i = 0;
+	while i < v.len(){
 		if v[i]%2 == 0 {
-			v.push(i);
+			v.remove(i);
+		}else {
+			i += 1;
 		}
 	}
-	return  v;
 }
 
 
