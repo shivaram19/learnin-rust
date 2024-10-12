@@ -46,12 +46,19 @@
 
 use std::{collections::HashMap, vec};
 
+fn bigger_string(a:String, b: String) -> String {
+	if a.len() >  b.len() {
+		return a;
+	}else{
+		return b;
+	}
+}
 fn reallocation(vec: Vec<(String, i32)>) -> HashMap<String, i32> {
 	let mut users: HashMap<String, i32> = HashMap::new();
 	for (key, value ) in vec{
 		users.insert(key, value);
 	}
-
+	
 	return users;
 }
 fn main(){
