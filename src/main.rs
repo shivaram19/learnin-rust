@@ -1,6 +1,9 @@
-// use  std::{fs::read_to_string, vec};
-// use chrono::{ Local, Utc };
 
+
+// use  std::{fs::read_to_string, vec};
+
+
+// use chrono::{ Local, Utc };
 // pub fn hakuna() -> &Vec<i32>{
 // 	let mut vec: Vec<i32> = Vec::new();
 // 	for i in 0..10{
@@ -13,7 +16,7 @@
 // 	let mut i:i32 = 0;
 // 	while i < vec.len(){
 // 		if vec[i]%2 == 1 {
-// 			vec.remove(i);
+// 			vec.remove(i)
 // 		};
 // 		i+=1;
 // 	}
@@ -46,7 +49,21 @@
 
 use std::{collections::HashMap, vec};
 
-fn bigger_string(a:String, b: String) -> String {
+// enum Status {
+// 	Single , 
+// 	Married
+// }
+
+struct Hakuna<'a> {
+	name: &'a str 
+}
+
+impl<'a>  Hakuna<'a>{
+	fn hakuna(&self) -> &'a str{
+		self.name
+	}
+}
+fn bigger_string<'b>(a:&'b str, b: &'b str) -> &'b str {
 	if a.len() >  b.len() {
 		return a;
 	}else{
@@ -58,10 +75,27 @@ fn reallocation(vec: Vec<(String, i32)>) -> HashMap<String, i32> {
 	for (key, value ) in vec{
 		users.insert(key, value);
 	}
-	
+
 	return users;
 }
+
+fn print_me(msg:&str){
+	println!("the msg is {}", msg);
+}
 fn main(){
+
+	let _kai = Hakuna{
+		name : "jang"
+	};
+	let msg = "hello world!";
+	print_me(msg);
+
+	let srtinging = String::from("jang kun lee");
+	{
+		let string2 = String::from("hakuntia");
+
+		let longest = bigger_string(&string2, &srtinging);
+	}
 	let mut hakuna: Vec<(String, i32)> = Vec::new();
 	hakuna.push((String::from("hakuna"),23));
 	hakuna.push((String::from("pushing for life"), 32));
